@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Multiple Choice Quiz</title>
+</head>
+
+<body>
+
+    <!--Nav Bar -->
+    <nav>
+
+        <div class="left">
+            <a href="highscores.html">View High Scores</a>
+        </div>
+        <div class="right">
+            Time:<span id="time"></span>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <main class="container">
+
+        <div id="startingPage">
+            <h1>HTML CSS Quiz</h1>
+            <p>The following quiz is 5 multiple choice questions related to HTMl CSS and Javascript. To get a high score
+                you must complete the quiz as fast as possible while getting the answers correct, wrong answers will
+                result in a loss of time and points. </p>
+        </div>
+
+
+        <!--Endgame screen-->
+
+        <div id="endingScreen" class="hide">
+            <h1>
+                Game Over !
+            </h1>
+            <p>Your final score is :</p>
+            <p>
+                <label id="initialLabel">Initials</label>
+                <input type="text" id="myText" value="AR" />
+            </p>
+            <button id="submitBtn">Subtmit</button>
+
+
+        </div>
+        <!--high score box-->
+        <div id="highScoreBox" class="highScoreBox hide">
+            <h1>High Scores</h1>
+            <hr>
+            <div>
+                <ul style="list-style-type: none;" id="highScoreList">
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!--Question screen-->
+
+        <div class="inside">
+            <div id="question-container" class="hide">
+                <div class = "questionTXT"id="question">Question</div>
+                <div id="answer-buttons" class="btn-grid">
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="start-btn" class="start-btn btn">Start</button>
+                <button id="next-btn" class="next-btn btn hide">Next</button>
+            </div>
+
+        </div>
+        <hr>
+
+
+
+
+    </main>
+    <br>
+    <br>
+    <!--Footer-->
+    <footer>
+
+        Quiz Game
+
+    </footer>
+
+</body>
+<script type="text/javascript" src="javascript.js"></script>
+
+</html>
