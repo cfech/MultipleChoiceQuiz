@@ -1,33 +1,33 @@
 //Declared Variables
 var highscoresList = document.getElementById("highscoresList")
 var highScores = []
-var newLi = document.createElement("li")
-var score
-var Initial
-
+var newLi
+var scores
 
 //Functions being run 
 retrieveScore()
 appendScores()
 
-// retrieves score and intial from local storage and pushes it ot the highScores array
+// retrieves score and initials from local storage and pushes them ot the highScores array
 function retrieveScore() {
-    score = JSON.parse(localStorage.getItem("score"))
-    Initial = JSON.parse(localStorage.getItem("Initial"))
-    highScores.push(Initial, score)
+    scores = JSON.parse( localStorage.getItem("scoresArray") )
+    console.log(scores)
+    highScores.push(...scores)
+    console.log(highScores)
 }
 
-// appends initials and score to highscoreslist 
+// for every score in the highScores array create  new list item nd append it to the high sores list
 function appendScores() {
-    // for (i = 0; i < highScores.length; i++) {
-    newLi.textContent += Initial + " : " + score
+    for (i = 0; i < highScores.length; i++) {
+    newLi = document.createElement("li")
+    newLi.textContent = highScores[i].initials+ ":" + highScores[i].score
     highscoresList.appendChild(newLi)
-
+    }
 }
-
-// trying to clear high scores list 
+// When the clear button is clicked set high scores array to empty and store the empty array in local storage
 var clearBtn = document.getElementById("clearBtn")
 clearBtn.addEventListener("click", function () {
-    console.log("works")
-    highScores = ''
+    highScores = [];
+    highscoresList.innerHTML = "";
+    localStorage.setItem("scoresArray", JSON.stringify([]));
 })

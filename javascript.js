@@ -10,22 +10,20 @@ var startingPage = document.getElementById("startingPage");
 var questionContainer = document.getElementById("question-container");
 var questionEl = document.getElementById("question");
 var endingBox = document.getElementById("endingScreen");
-
 //Scoring elements
 var initialTxt = document.getElementById("myText");
 var highScoreList = document.getElementById("highScoreList");
 var highScores = ["Congrats Your score is:"];
 var scoreSpan = document.getElementById("scoreSpan");
-
 //Answer check span 
 var answerCheck = document.getElementById("answerCheck")
-
 //Declared Variables 
 let shuffledQ, currentQindex;
-var score
+var scores
 var timeLeft
 var timeInterval
 var answers
+var scoresArray = []
 
 //Time function, countdown from 60 seconds, when gets to 0 clear the interval 
 function countdown() {
@@ -46,24 +44,18 @@ function countdown() {
       timerEl.textContent = timeLeft;
       questionContainer.classList.add("hide")
       endingBox.classList.remove("hide")
-
     }
-
   }, 1000);
-
 }
 
 // Resets the timer to 0
 function resetTime() {
   timerEl.textContent = 0
-  console.log("reset time works ")
 }
-
 
 //when start button is clicked  startGame() is run
 startBtn.addEventListener("click", function () {
   startGame()
-
 }
 )
 
@@ -78,22 +70,17 @@ function startGame() {
   nextQ()
   resetHome()
   resetTime()
-
 }
 //NextQ calls function resetQ and showQuestion, which shuffles our question index
 function nextQ() {
   resetQ()
   showQuestion(shuffledQ[currentQindex])
-
 }
 
 // Hides the ending screen when game starts
 function resetHome() {
   endingBox.classList.add("hide")
 }
-
-
-
 
 // When show question is run, it displays our question on page, creates an answer button for each answer and appends the button to the page.
 function showQuestion(question) {
@@ -116,9 +103,7 @@ function selectAnswer(event) {
   var correct = selectedBtn.dataset.correct
   //If not correct, deduct 10 from timer/score
   if (!correct) {
-    console.log(timeLeft)
     timeLeft = timeLeft - 10
-    console.log(timeLeft)
     //Print incorrect if question is wrong
     answerCheck.textContent = "Incorrect"
     // Print correct when question is answered correct 
@@ -139,13 +124,11 @@ function selectAnswer(event) {
     questionContainer.classList.add("hide")
 
     // Clearing the time interval when game is over 
-    score = document.getElementById("time").textContent
     clearInterval(timeInterval);
-    // Storing score in local storage
-    localStorage.setItem("score", JSON.stringify(score))
-    score = JSON.parse(localStorage.getItem("score"))
-    //setting score span text content to the score
-    scoreSpan.textContent = score
+
+    //setting score span text content to the score1
+    score1 = document.getElementById("time").textContent
+    scoreSpan.textContent = score1
   }
 }
 
@@ -163,11 +146,24 @@ function resetQ() {
   }
 }
 
-//When submit button is clicked Initials are saved to local storage 
-submitBTN.addEventListener("click", function () {
-  localStorage.setItem("Initial", JSON.stringify(initialTxt.value))
+//When submit button is clicked scores array is set to the the current scores array in local storage, 
+//initials are set to the txt value of the initials box
+//scores is set the txt content of time, 
+//both the initials and scores are pushed to the scores array, 
+//scoresArray is set to scoresArray in local storage
+//The location is changed to highscores.html
+submitBTN.addEventListener("click", function(event) {
+  event.preventDefault();
+  scoresArray = JSON.parse(localStorage.getItem("scoresArray"))
+  initials = initialTxt.value
+  scores = document.getElementById("time").textContent
+  scoresArray.push({
+    score: scores,
+    initials: initials,
+  })
+  localStorage.setItem("scoresArray", JSON.stringify(scoresArray))
+  location.href = 'highscores.html';
 })
-
 
 // Array of questions and answers 
 const questions = [
