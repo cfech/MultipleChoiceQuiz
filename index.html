@@ -23,6 +23,8 @@
     </nav>
     <br>
     <br>
+
+    <!--Main-->
     <main class="container">
 
         <div id="startingPage">
@@ -39,16 +41,18 @@
             <h1>
                 Game Over !
             </h1>
-            <p>Your final score is :</p>
+            <p>Your final score is :<span id="scoreSpan"></span></p>
             <p>
                 <label id="initialLabel">Initials</label>
                 <input type="text" id="myText" value="AR" />
             </p>
-            <button id="submitBtn">Subtmit</button>
+            <button id="submitBtn" onclick="location.href = 'highscores.html'">Submit</button>
 
 
         </div>
-        <!--high score box-->
+
+        <!--High Score Screen-->
+
         <div id="highScoreBox" class="highScoreBox hide">
             <h1>High Scores</h1>
             <hr>
@@ -58,13 +62,11 @@
             </div>
         </div>
 
-
-
         <!--Question screen-->
 
         <div class="inside">
             <div id="question-container" class="hide">
-                <div class = "questionTXT"id="question">Question</div>
+                <div class="questionTXT" id="question">Question</div>
                 <div id="answer-buttons" class="btn-grid">
                     <button class="btn">Answer 1</button>
                     <button class="btn">Answer 2</button>
@@ -72,28 +74,30 @@
                     <button class="btn">Answer 4</button>
                 </div>
             </div>
+            <!--Controls on Question Screen-->
             <div class="controls">
                 <button id="start-btn" class="start-btn btn">Start</button>
                 <button id="next-btn" class="next-btn btn hide">Next</button>
             </div>
-
         </div>
+<!--Question Check-->
         <hr>
-
-
-
+        <p class = "answerChecker" id="answerCheck"></p>
 
     </main>
     <br>
     <br>
+
     <!--Footer-->
     <footer>
+
 
         Quiz Game
 
     </footer>
 
 </body>
+
 <script type="text/javascript" src="javascript.js"></script>
 
 </html>

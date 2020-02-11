@@ -4,8 +4,6 @@
 
 .inside{
     display: grid;
-    /* width: 100vw;
-    height: 100vh; */
     justify-content: center;
     align-items: center;
     padding-top: 40px;
@@ -38,16 +36,11 @@ align-items: center;
 .hide{
     display: none;
 }
-/* .question{
-    font-size: 30px;
-    font-weight: bold;
-} */
 
 
 nav {
     background-color: whitesmoke;
     border: 5px;
-    border-color: red;
     margin-top: 0px;
     margin-bottom: 0px;
 }
@@ -126,3 +119,34 @@ a {
     
 
 }
+#highscoresList{
+    width: 100%;
+    border: 20px;
+    border-color: black;
+    text-align: center;
+}
+.hsDiv{
+  
+        border: solid;
+        border-width: 1px;
+        width: 65%;
+        margin-left: 150px;
+        margin-bottom: 20px;
+}
+#clearBtn{
+    margin: 10px;
+}
+.answerChecker{
+    opacity: 40%;
+}
+
+@media only screen and (max-width: 956px) {
+.hsDiv{
+    width: auto;
+    margin: auto;
+    }
+.container{
+    height: auto;
+    width: auto;
+}
+  }

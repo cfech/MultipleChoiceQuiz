@@ -6,41 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+    <title>High Scores</title>
 
 </head>
 
 <body>
-
-    <nav>
-
-        <div class = "highScoreNav">
-           <a href="index.html"> Home</a>
-        </div>
-    </nav>
     <br>
-    <br>
-    <main class = "container">
-        <div class="high score box">
+
+    <!--Main Container of the page -->
+    <main class="container">
+        <div class="highScoreBox">
+
             <h1>High Scores</h1>
             <hr>
-            <div class=>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus totam tenetur
-                voluptatem veniam, quaerat rem exercitationem laudantium suscipit corrupti voluptatum animi nam quasi
-                nostrum, quos quae aspernatur eos mollitia? Pariatur.</div>
+            <div class="hsDiv">
+                <ol id="highscoresList"></ol>
+            </div>
         </div>
         <div class="controls">
-            <button  onclick="location.href = 'index.html'"  id="start-btn" class="start-btn btn">Start</button>
-          </div>
+            <button onclick="location.href = 'index.html'" id="start-btn" class="start-btn btn">Back to Quiz</button>
+            <button id="clearBtn" class="start-btn btn">Clear Scores</button>
+        </div>
     </main>
-<br>
-<br>
+    <br>
+    <br>
+
+    <!--Footer-->
     <footer>
-        Hello
-    
+        Leader Board
+
     </footer>
 
 
 </body>
-<script type="text/javascript" src="javascript.js"></script>
+<!-- make new javascirpt-->
+<script src="javascriptHS.js"></script>
 
 </html>
