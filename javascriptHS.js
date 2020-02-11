@@ -11,9 +11,7 @@ appendScores()
 // retrieves score and initials from local storage and pushes them ot the highScores array
 function retrieveScore() {
     scores = JSON.parse( localStorage.getItem("scoresArray") )
-    console.log(scores)
     highScores.push(...scores)
-    console.log(highScores)
 }
 
 // for every score in the highScores array create  new list item nd append it to the high sores list
