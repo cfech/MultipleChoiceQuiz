@@ -154,7 +154,8 @@ function resetQ() {
 //The location is changed to highscores.html
 submitBTN.addEventListener("click", function(event) {
   event.preventDefault();
-  scoresArray = JSON.parse(localStorage.getItem("scoresArray"))
+
+  // scoresArray = JSON.parse(localStorage.getItem("scoresArray"))
   initials = initialTxt.value
   scores = document.getElementById("time").textContent
   scoresArray.push({
